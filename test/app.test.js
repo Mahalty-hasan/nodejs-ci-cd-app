@@ -2,6 +2,15 @@ const request = require('supertest');
 const app = require('../src/index');
 
 describe('API Tests', () => {
+    let server;
+
+    beforeAll((done) => {
+        server = app.listen(3000,done);
+    });
+
+    afterAll((done) => {
+        server.close(done):
+    });
     it('should return health status', async () => {
         const response = await request(app).get('/api/health');
         expect(response.statusCode).toBe(200);
