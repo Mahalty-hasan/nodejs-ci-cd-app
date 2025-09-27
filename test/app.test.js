@@ -9,7 +9,7 @@ describe('API Tests', () => {
     });
 
     afterAll((done) => {
-        server.close(done):
+        server.close(done);
     });
     it('should return health status', async () => {
         const response = await request(app).get('/api/health');
